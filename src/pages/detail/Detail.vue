@@ -2,16 +2,19 @@
   <div>
     <div class="content">
       <detail-banner></detail-banner>
+      <detail-header></detail-header>
     </div>
   </div>
 </template>
 
 <script>
 import DetailBanner from './commponents/Banner'
+import DetailHeader from './commponents/Header'
 export default {
   name: 'Detail',
   components: {
-    DetailBanner
+    DetailBanner,
+    DetailHeader
   }
 }
 </script>
