@@ -51,6 +51,11 @@ export default {
     cities: Object,
     letter: String
   },
+  data () {
+    return {
+      timer: null
+    }
+  },
   computed: {
     ...mapState({
       currentCity: 'city'
@@ -64,7 +69,14 @@ export default {
     ...mapMutations(['changeCity'])
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+    this.timer = setTimeout(() => {
+      this.scroll = new Bscroll(this.$refs.wrapper, {
+        click: true
+      })
+    }, 100)
   },
   watch: {
     letter () {
